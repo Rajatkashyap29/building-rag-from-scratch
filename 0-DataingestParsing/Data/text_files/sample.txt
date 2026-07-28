@@ -1,0 +1,13 @@
+Installing in JupyterLab 3.x
+Most of the time, installing ipywidgets automatically configures JupyterLab 3.x to use widgets. The ipywidgets package does this by depending on the jupyterlab_widgets package, which configures JupyterLab 3 to display and use widgets.
+
+If JupyterLab and the IPython kernel are installed in different environments (for example, separate environments are providing different Python kernels), then the installation requires two steps:
+
+Install the jupyterlab_widgets package in the environment containing JupyterLab.
+
+Install ipywidgets in each kernel’s environment that will use ipywidgets.
+
+For example, if using conda environments, with JupyterLab installed on the base environment and the kernel installed in an environment called pyenv, the commands are:
+
+conda install -n base -c conda-forge jupyterlab_widgets
+conda install -n pyenv -c conda-forge ipywidgets
