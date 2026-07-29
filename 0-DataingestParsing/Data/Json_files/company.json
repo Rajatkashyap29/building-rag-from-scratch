@@ -1,0 +1,84 @@
+{
+    "company": {
+        "name": "TechNova Solutions",
+        "founded": 2018,
+        "headquarters": {
+            "city": "Bengaluru",
+            "country": "India"
+        },
+        "employees": [
+            {
+                "id": 101,
+                "name": "Rahul Sharma",
+                "department": "Engineering",
+                "skills": [
+                    "Python",
+                    "FastAPI",
+                    "Docker"
+                ],
+                "salary": 1200000,
+                "is_active": true,
+                "projects": [
+                    {
+                        "project_id": "P001",
+                        "name": "AI Chatbot",
+                        "status": "Completed"
+                    },
+                    {
+                        "project_id": "P002",
+                        "name": "RAG Search Engine",
+                        "status": "In Progress"
+                    }
+                ]
+            },
+            {
+                "id": 102,
+                "name": "Priya Singh",
+                "department": "Data Science",
+                "skills": [
+                    "Pandas",
+                    "Scikit-learn",
+                    "SQL"
+                ],
+                "salary": 1350000,
+                "is_active": true,
+                "projects": [
+                    {
+                        "project_id": "P003",
+                        "name": "Sales Forecasting",
+                        "status": "Completed"
+                    }
+                ]
+            },
+            {
+                "id": 103,
+                "name": "Amit Verma",
+                "department": "HR",
+                "skills": [
+                    "Recruitment",
+                    "Payroll"
+                ],
+                "salary": 850000,
+                "is_active": false,
+                "projects": []
+            }
+        ],
+        "clients": [
+            {
+                "client_id": "C001",
+                "name": "ABC Retail",
+                "country": "USA"
+            },
+            {
+                "client_id": "C002",
+                "name": "XYZ Finance",
+                "country": "UK"
+            }
+        ],
+        "metadata": {
+            "last_updated": "2026-07-29",
+            "version": "1.0",
+            "notes": null
+        }
+    }
+}
