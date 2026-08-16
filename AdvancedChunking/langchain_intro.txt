@@ -1,0 +1,9 @@
+Artificial Intelligence is a branch of computer science that focuses on creating systems that can perform tasks that normally require human intelligence. These tasks include reasoning, decision making, problem solving, understanding language, and recognizing images. AI is used in many applications such as virtual assistants, recommendation systems, fraud detection, and autonomous vehicles.
+
+Machine Learning is a subset of Artificial Intelligence that allows computers to learn patterns from data without being explicitly programmed for every task. In supervised learning, models learn from labeled datasets and are commonly used for classification and regression problems. In unsupervised learning, models work with unlabeled data to discover hidden patterns and groups. Reinforcement learning is another approach where an agent learns by interacting with an environment and receiving rewards or penalties.
+
+Deep Learning is a specialized area of Machine Learning that uses artificial neural networks with multiple layers. These networks can learn complex patterns from large amounts of data. Convolutional Neural Networks are commonly used for image-related tasks, while Transformer models have become very important for natural language processing and generative AI applications.
+
+the eiffel tower is located in paris
+
+France is the popular Tourist Destination
