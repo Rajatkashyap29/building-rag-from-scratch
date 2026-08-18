@@ -1,0 +1,59 @@
+Artificial Intelligence is a field of computer science that focuses on building systems capable of performing tasks that normally require human intelligence.
+AI applications include recommendation systems, virtual assistants, fraud detection, autonomous vehicles, and intelligent search systems.
+Machine Learning is a subset of Artificial Intelligence that enables computers to learn patterns from data.
+Supervised learning uses labeled examples to train models for tasks such as classification and regression.
+Unsupervised learning works with unlabeled data and attempts to discover hidden patterns or groups.
+Deep Learning is a specialized area of Machine Learning that uses neural networks with multiple layers.
+Neural networks are widely used for image recognition, speech processing, and natural language processing.
+Natural Language Processing allows computers to understand, process, and generate human language.
+Modern NLP systems often use Transformer architectures to understand relationships between words and sentences.
+Large Language Models are neural network models trained on large amounts of text data.
+LLMs can perform tasks such as question answering, summarization, translation, and text generation.
+An LLM application usually sends a user prompt to a language model and receives generated text as a response.
+However, an LLM may not know information that exists in a private database or recently created documents.
+Retrieval Augmented Generation solves this problem by retrieving relevant information before generating an answer.
+A RAG system usually contains a document loading, chunking, embedding, retrieval, and generation pipeline.
+Documents are divided into smaller chunks so that relevant information can be retrieved efficiently.
+Embeddings represent text as numerical vectors that capture semantic information.
+Similar pieces of text tend to have embeddings that are close to each other in vector space.
+Vector databases are designed to store embeddings and perform similarity searches efficiently.
+Examples of vector databases include FAISS, Chroma, Pinecone, and other specialized vector storage systems.
+A retriever searches the vector database and returns documents that are potentially relevant to a user query.
+Semantic search uses embeddings to find documents based on their meaning rather than exact keyword matches.
+Keyword search focuses on exact or related terms that appear in the query and documents.
+BM25 is a popular algorithm used for keyword-based information retrieval.
+Hybrid search combines semantic search with keyword search to improve retrieval quality.
+Hybrid retrieval can find documents that are semantically related while also preserving important exact keywords.
+After retrieval, a system may return several candidate documents instead of sending all of them to the language model.
+Sending too many irrelevant documents can increase token usage and may reduce the quality of the generated answer.
+Reranking is used to improve the ordering of retrieved documents based on their relevance to the query.
+A reranker receives the query and candidate documents and calculates a more accurate relevance score.
+The highest scoring documents are selected as the final context for the language model.
+Reranking is usually performed after an initial retrieval stage because rerankers are more computationally expensive.
+A common RAG pipeline can therefore be described as query, retrieval, reranking, and generation.
+For example, a user may ask how to implement authentication in a FastAPI application.
+The retriever may return documents about FastAPI, JWT, OAuth2, Python, and general web development.
+A reranker can determine that the JWT and FastAPI authentication documents are more relevant than the Python document.
+The final top documents are then provided to the language model as context.
+FastAPI is a Python framework commonly used for building modern REST APIs.
+FastAPI provides automatic API documentation through Swagger UI and ReDoc.
+Pydantic is used by FastAPI for data validation and serialization.
+Authentication is the process of verifying the identity of a user or client.
+Authorization determines whether an authenticated user has permission to access a resource.
+JSON Web Tokens are commonly used to implement stateless authentication in web applications.
+After successful login, a server can generate a JWT and return it to the client.
+The client can send the token with future requests to protected API endpoints.
+The server verifies the token before allowing access to protected resources.
+OAuth2 is another common framework used for authorization and delegated access.
+Databases store structured information that applications need to create, read, update, and delete.
+SQL databases organize information using tables, rows, and columns.
+NoSQL databases can store information using flexible document, key-value, graph, or column-based models.
+Caching is a technique used to temporarily store frequently accessed data to improve application performance.
+Docker packages an application and its dependencies into isolated containers.
+Containers make it easier to run applications consistently across different environments.
+Git is a version control system used to track changes in source code.
+GitHub provides hosting and collaboration features for Git repositories.
+Python is widely used in AI, Machine Learning, backend development, automation, and data analysis.
+A good RAG system should retrieve relevant information, minimize irrelevant context, and provide accurate answers.
+Evaluation is important for measuring retrieval quality, answer quality, latency, and overall system performance.
+Reranking can improve the precision of retrieved context and is especially useful when the initial retriever returns many candidate documents.
