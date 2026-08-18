@@ -1,0 +1,29 @@
+Retrieval Augmented Generation, commonly called RAG, combines information retrieval with a Large Language Model. RAG retrieves relevant information from external documents and provides that information to the language model before generating an answer. A RAG system first searches for relevant documents and then uses the retrieved information to generate a response.
+
+RAG systems are useful because language models may not contain information about private or newly created documents. By retrieving information from an external knowledge base, RAG can answer questions using information that was not present in the original model training data.
+
+Documents used in a RAG system are usually divided into smaller chunks. These chunks are converted into numerical representations called embeddings. Embeddings capture the semantic meaning of text and allow similar pieces of information to be found using vector similarity.
+
+A vector database stores embeddings and allows applications to perform similarity searches. When a user asks a question, the query is converted into an embedding and compared with stored document embeddings. The most relevant chunks are then returned by the retriever.
+
+Dense retrieval uses embeddings to find documents that are semantically similar to the query. It is useful when the query and document use different words but have similar meanings.
+
+Sparse retrieval focuses more on keywords and exact terms. BM25 is a popular sparse retrieval algorithm. Sparse search can be particularly useful when exact names, technical terms, product IDs, or other keywords are important.
+
+Hybrid search combines dense retrieval and sparse retrieval. It tries to get the advantages of both semantic similarity and keyword matching. Hybrid retrieval can improve the recall of a RAG system.
+
+Sometimes a retriever returns several documents that contain almost the same information. These documents are called redundant results because they repeat information that has already been retrieved.
+
+Maximal Marginal Relevance, or MMR, can be used to reduce redundant results. MMR tries to select documents that are both relevant to the query and different from documents that have already been selected.
+
+For example, if three retrieved chunks explain the definition of RAG in almost the same way, MMR may select only one of those chunks. It can then select another chunk explaining embeddings or vector databases so that the final context contains more diverse information.
+
+MMR therefore balances relevance and diversity during retrieval. This can provide the language model with a wider range of useful information while reducing repetitive context.
+
+Reranking is another technique used in retrieval pipelines. A reranker takes the documents returned by an initial retriever and evaluates their relevance to the query again.
+
+The retriever is responsible for finding candidate documents, while the reranker is responsible for ordering those candidates according to their relevance. Reranking can improve the precision of the final documents passed to the language model.
+
+A typical advanced RAG pipeline can contain document loading, text splitting, embedding generation, vector storage, retrieval, reranking, and answer generation.
+
+The final goal of retrieval is not simply to find many documents. The goal is to provide the language model with the most useful and relevant information needed to answer the user's question accurately.
