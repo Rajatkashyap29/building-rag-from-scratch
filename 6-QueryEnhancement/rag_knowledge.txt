@@ -1,0 +1,249 @@
+Retrieval Augmented Generation is commonly known as RAG.
+RAG combines information retrieval with large language models.
+A RAG system retrieves relevant information before generating an answer.
+The retrieved information is provided to the language model as context.
+RAG is useful when a language model needs access to external knowledge.
+External knowledge can include documents, websites, databases, manuals, reports, and company information.
+RAG can reduce the need to retrain a language model whenever new information becomes available.
+A typical RAG pipeline contains document loading, text splitting, embedding generation, vector storage, retrieval, and generation.
+Some advanced RAG systems also include query enhancement, reranking, hybrid search, filtering, and evaluation.
+The quality of retrieval has a significant impact on the quality of the final answer.
+If the retriever returns irrelevant documents, the language model may generate an inaccurate answer.
+Good retrieval therefore plays an important role in building reliable RAG applications.
+The first step in many RAG applications is collecting useful documents.
+Documents can be loaded from PDF files, text files, web pages, databases, or cloud storage.
+A document loader reads the source data and converts it into a format that can be processed by the application.
+LangChain provides several document loaders for different types of data sources.
+TextLoader can be used to load plain text files.
+PDF loaders can be used to extract text from PDF documents.
+Web loaders can be used to retrieve information from web pages.
+After loading documents, the documents are usually divided into smaller pieces called chunks.
+Chunking is important because large documents may contain multiple topics.
+Sending an entire large document to a language model may waste context space.
+Smaller chunks allow the retriever to find more specific information.
+Chunk size determines how much text is included in each chunk.
+Chunk overlap keeps some content from the previous chunk in the next chunk.
+Overlap can help preserve context between neighboring chunks.
+Recursive character text splitting is a commonly used chunking technique.
+Semantic chunking is another technique that uses the meaning of sentences to decide where chunks should be separated.
+Semantic chunking attempts to keep related sentences together.
+Traditional chunking may split text based on characters or fixed sizes.
+Semantic chunking tries to create chunks that represent coherent ideas.
+After chunking, the text chunks can be converted into embeddings.
+An embedding is a numerical representation of text.
+Embeddings represent semantic information in vector form.
+Texts with similar meanings can have similar vector representations.
+Embedding models are trained to represent text in a numerical space.
+Sentence Transformers provide several models for generating sentence embeddings.
+The all-MiniLM-L6-v2 model is commonly used for lightweight semantic similarity experiments.
+Embedding dimensions depend on the embedding model being used.
+Different embedding models can produce vectors with different dimensions.
+The vectors are stored in a vector database for efficient retrieval.
+A vector database is designed to store and search vector representations.
+Popular vector databases include Chroma, Pinecone, FAISS, and Astra DB.
+Chroma can be useful for local vector database experiments.
+Pinecone is a managed vector database service.
+FAISS is a library for efficient similarity search over vectors.
+Astra DB provides a cloud database platform with vector search capabilities.
+When a user asks a question, the question can also be converted into an embedding.
+The query embedding is compared with document embeddings.
+Similarity measures are then used to find relevant documents.
+Cosine similarity is a common similarity measure for comparing embeddings.
+Cosine similarity measures the angle between two vectors.
+A higher cosine similarity usually indicates greater semantic similarity.
+Euclidean distance can also be used for measuring distance between vectors.
+The choice of similarity metric can depend on the embedding model and vector database.
+Dense retrieval uses dense vector embeddings for semantic search.
+Dense retrieval is useful when the query and document use different words but have similar meanings.
+For example, a query about automobile maintenance can retrieve documents that use the term car maintenance.
+Dense retrieval focuses on semantic relationships rather than exact keyword matching.
+Sparse retrieval uses a sparse representation of text.
+BM25 is one of the most commonly used sparse retrieval algorithms.
+Sparse retrieval is particularly useful when exact keywords are important.
+Technical names, product identifiers, error messages, and specific terms can benefit from keyword-based retrieval.
+Dense and sparse retrieval have different strengths.
+Dense retrieval is strong at understanding semantic meaning.
+Sparse retrieval is strong at matching exact terms.
+Hybrid search combines dense and sparse retrieval.
+Hybrid search attempts to combine semantic similarity with keyword matching.
+Hybrid search can improve retrieval performance for queries containing both concepts and specific keywords.
+A hybrid retriever may retrieve candidates from both dense and sparse systems.
+The results can then be combined using a ranking strategy.
+Reciprocal Rank Fusion is one technique that can be used to combine rankings.
+Hybrid retrieval is often useful in production RAG systems.
+Retrieval does not always return the perfect documents.
+A retriever may return several documents that contain very similar information.
+Repeated information can reduce the diversity of the context.
+Maximal Marginal Relevance is known as MMR.
+MMR attempts to balance relevance and diversity.
+MMR selects documents that are relevant to the query while avoiding excessive duplication.
+MMR can be useful when a vector database contains many similar chunks.
+Similarity search focuses mainly on relevance.
+MMR considers both relevance and similarity to already selected documents.
+The lambda parameter controls the balance between relevance and diversity.
+A higher lambda gives more importance to query relevance.
+A lower lambda gives more importance to diversity.
+MMR is not the same as reranking.
+Reranking takes retrieved candidate documents and evaluates their relevance again.
+A reranker can use a more powerful model than the initial retriever.
+The reranker then orders documents according to their relevance to the query.
+A common pipeline is retrieval followed by reranking.
+For example, a retriever may return twenty candidate documents.
+A reranker can score those twenty documents.
+The application can then select the top five documents.
+The selected documents are passed to the language model.
+Reranking can improve precision in retrieval pipelines.
+Query enhancement is another technique used before retrieval.
+Query enhancement improves the original user query.
+The goal is to create a query that provides a better search signal.
+Users often ask short or ambiguous questions.
+A short question may not contain enough information for accurate retrieval.
+Query rewriting can transform a short question into a more detailed query.
+For example, the query "RAG kya hai" can be rewritten as "What is Retrieval Augmented Generation and how does it work in a large language model application?"
+The rewritten query contains additional context.
+Query expansion adds related terms to the original query.
+Query expansion can help retrieve documents containing related terminology.
+For example, a query about RAG can be expanded with retrieval, embeddings, vector databases, and language models.
+Query enhancement can also correct spelling mistakes.
+Query enhancement can clarify ambiguous words.
+Query enhancement can add missing technical context.
+Query enhancement can translate a question into another language when required.
+Query enhancement can convert conversational questions into search-friendly queries.
+Query enhancement can improve recall during retrieval.
+Query rewriting is particularly useful for conversational RAG applications.
+Users may ask follow-up questions using words such as it, this, or that.
+The meaning of these words may depend on previous conversation history.
+A query rewriting system can use conversation history to create a standalone query.
+For example, a user may first ask "What is vector search?"
+The user may then ask "How does it work?"
+The second query can be rewritten as "How does vector search work in a RAG system?"
+This rewritten query is easier for the retriever to understand.
+Query decomposition is another form of query enhancement.
+A complex question can be divided into multiple smaller questions.
+Each sub-question can be retrieved separately.
+The retrieved results can then be combined.
+For example, a question about RAG and fine-tuning can be divided into separate questions.
+One question can focus on RAG.
+Another question can focus on fine-tuning.
+A third question can compare the two approaches.
+Multi-query retrieval generates multiple versions of the same user question.
+Each generated query can retrieve different documents.
+The results from multiple queries can then be combined.
+Multi-query retrieval can improve recall.
+Different query formulations may retrieve different parts of the knowledge base.
+Query enhancement is especially useful when the original question is vague.
+However, query enhancement can also introduce incorrect assumptions.
+An incorrectly rewritten query may retrieve irrelevant information.
+The generated query should therefore preserve the original intent.
+The system should avoid adding unsupported information.
+Query enhancement should improve the search query without changing its meaning.
+Prompt engineering can be used to instruct a language model to rewrite queries.
+A query rewriting prompt can tell the model to generate a concise search query.
+The prompt can also instruct the model to remove unnecessary conversational language.
+A good query rewriting prompt should clearly describe the task.
+It should provide the original question to the model.
+It may also provide conversation history when context is required.
+The rewritten query can then be passed to the retriever.
+After retrieval, the system can perform filtering.
+Metadata filtering can restrict retrieval to specific categories.
+For example, a company knowledge base may contain documents from multiple departments.
+A user may ask specifically about the finance department.
+Metadata filtering can restrict retrieval to finance documents.
+Metadata can include document source, date, department, author, category, or document type.
+Filtering before retrieval can reduce irrelevant results.
+Filtering after retrieval can also be used in some systems.
+The retrieved documents can be combined into a context.
+The context is then provided to the language model.
+A prompt template defines how the context and question are presented.
+The prompt can instruct the model to answer only using the provided context.
+This can help reduce hallucination.
+Hallucination occurs when a language model generates information that is not supported by the available evidence.
+RAG can reduce hallucination but does not completely eliminate it.
+The quality of retrieved documents is important for reducing unsupported answers.
+A strong RAG prompt can tell the model to say that information is unavailable when the context does not contain an answer.
+The language model then generates the final response.
+The final response should ideally be grounded in the retrieved documents.
+Source citations can be included in advanced RAG systems.
+Citations allow users to inspect the sources used for an answer.
+Grounded generation is an important goal of enterprise RAG applications.
+Enterprise RAG systems may contain thousands or millions of documents.
+Efficient retrieval becomes important when the knowledge base grows.
+Vector indexes are used to speed up similarity search.
+Approximate nearest neighbor algorithms are commonly used for large-scale vector search.
+Retrieval parameters can affect both speed and quality.
+The k parameter determines how many documents are returned.
+A larger k can improve recall but may introduce irrelevant information.
+A smaller k can reduce context size but may miss useful information.
+The fetch_k parameter can be used with MMR to retrieve a larger candidate set before selecting diverse results.
+For example, fetch_k can be set to ten and k can be set to four.
+The system can first consider ten candidates.
+MMR can then select four documents with a balance of relevance and diversity.
+Reranking can be applied after initial retrieval.
+A typical pipeline may retrieve fifty candidates and rerank them down to five.
+This approach can improve precision but increases computational cost.
+Latency is an important consideration in production RAG.
+Every additional model call can increase response time.
+Query enhancement may require an additional language model call.
+Reranking may require another model inference step.
+Hybrid retrieval may involve multiple retrieval operations.
+Developers need to balance retrieval quality, latency, and cost.
+A simple RAG system may use one embedding model and one vector database.
+An advanced RAG system may use query rewriting, hybrid retrieval, MMR, reranking, metadata filtering, and evaluation.
+The best architecture depends on the application.
+A customer support system may need exact product names and semantic understanding.
+A legal document system may require strong filtering and precise retrieval.
+A documentation assistant may benefit from semantic search and query rewriting.
+A code assistant may rely heavily on exact keywords, function names, and file paths.
+A medical information system may require strict grounding and careful evaluation.
+Retrieval evaluation measures how well the system finds useful documents.
+Recall measures how many relevant documents are retrieved.
+Precision measures how many retrieved documents are relevant.
+A system with high recall retrieves most relevant information.
+A system with high precision returns fewer irrelevant documents.
+Reranking can often improve precision.
+Query enhancement can improve recall by generating better search queries.
+Hybrid search can improve recall by combining different retrieval methods.
+MMR can improve diversity in the retrieved context.
+These techniques solve different retrieval problems.
+Query enhancement changes or improves the query.
+Dense retrieval searches by semantic meaning.
+Sparse retrieval searches using lexical or keyword information.
+Hybrid retrieval combines dense and sparse approaches.
+MMR selects relevant and diverse documents.
+Reranking reorders candidate documents according to relevance.
+Metadata filtering restricts the search space.
+Chunking determines how documents are divided before indexing.
+Embeddings convert text into vectors.
+Vector databases store and search those vectors.
+The language model generates the final answer from retrieved context.
+Understanding these components helps developers design better RAG pipelines.
+A good RAG pipeline should be evaluated using real user questions.
+Synthetic questions can also be generated for testing.
+Evaluation datasets can contain questions and expected relevant documents.
+Retrieval metrics can be used to compare different retrieval strategies.
+Developers can compare similarity search with MMR.
+They can compare dense retrieval with hybrid retrieval.
+They can compare retrieval with and without query enhancement.
+They can compare results before and after reranking.
+Experiments help identify which technique actually improves the application.
+Not every RAG system needs every advanced technique.
+A simple application may work well with basic vector similarity search.
+Adding unnecessary components can increase complexity and latency.
+The architecture should be selected based on the actual retrieval problem.
+Query enhancement is particularly valuable when users ask short, vague, conversational, or ambiguous questions.
+For well-structured technical queries, basic retrieval may already perform well.
+Query enhancement should be tested rather than assumed to improve every query.
+A useful experiment is to compare retrieval results using the original query and an enhanced query.
+The developer can inspect which documents were retrieved in both cases.
+The developer can then measure whether the enhanced query improved retrieval quality.
+This type of experiment helps determine whether query enhancement is useful for a particular dataset.
+In a production RAG system, query enhancement can be implemented as a preprocessing stage.
+The original user query is received by the application.
+A query rewriting model generates a search-friendly version.
+The enhanced query is sent to the retriever.
+The retriever returns candidate documents.
+The candidates can optionally be reranked.
+The final documents are passed to the language model.
+The language model generates a grounded response.
+This creates a retrieval pipeline where each stage has a specific responsibility.
+The overall objective is to retrieve the right information and generate a useful answer.
