@@ -179,6 +179,19 @@ wheels = [
 ]
 
 [[package]]
+name = "arxiv"
+version = "4.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "lxml" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/41/2e/c6cd87cf0ffa1ae00cb23b1a0b56bd1e93ae91296f093d2c0c30b479ca11/arxiv-4.0.1.tar.gz", hash = "sha256:304e91a9f869fa4cc362a0a6f38ecb956eec11b83619465172ab24b9453e3d51", size = 198962, upload-time = "2026-07-31T23:42:17.815Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c8/4a/b0b203c02e283e2312ed12c5ddb2d9f8ddec557f8f49f3810e9cc10591d4/arxiv-4.0.1-py3-none-any.whl", hash = "sha256:72a79d22a83fec14c3a23966791692e2400399c218ad4e5416ce84af817a9cc9", size = 13015, upload-time = "2026-07-31T23:42:16.591Z" },
+]
+
+[[package]]
 name = "astrapy"
 version = "2.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -4198,6 +4211,7 @@ name = "rag-udemy"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "arxiv" },
     { name = "astrapy" },
     { name = "chromadb" },
     { name = "docx2txt" },
@@ -4231,6 +4245,7 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "rank-bm25" },
     { name = "sentence-transformers" },
+    { name = "tavily-python" },
     { name = "tiktoken" },
     { name = "unstructured", extra = ["pdf"] },
     { name = "unstructured-inference" },
@@ -4239,6 +4254,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "arxiv", specifier = ">=4.0.1" },
     { name = "astrapy", specifier = ">=2.3.1" },
     { name = "chromadb", specifier = ">=1.5.8" },
     { name = "docx2txt", specifier = ">=0.9" },
@@ -4272,6 +4288,7 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "rank-bm25", specifier = ">=0.2.2" },
     { name = "sentence-transformers", specifier = ">=5.4.1" },
+    { name = "tavily-python", specifier = ">=0.8.1" },
     { name = "tiktoken", specifier = ">=0.12.0" },
     { name = "unstructured", extras = ["pdf"], specifier = ">=0.22.22" },
     { name = "unstructured-inference", specifier = ">=1.6.7" },
@@ -4877,6 +4894,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/83/d3/803453b36afefb7c2bb238361cd4ae6125a569b4db67cd9e79846ba2d68c/sympy-1.14.0.tar.gz", hash = "sha256:d3d3fe8df1e5a0b42f0e7bdf50541697dbe7d23746e894990c030e2b05e72517", size = 7793921, upload-time = "2025-04-27T18:05:01.611Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl", hash = "sha256:e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5", size = 6299353, upload-time = "2025-04-27T18:04:59.103Z" },
+]
+
+[[package]]
+name = "tavily-python"
+version = "0.8.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "requests" },
+    { name = "tiktoken" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0d/94/f49475ac7c33beb19a7067ffa9faad21a9b1a4afbcadac22476a9e143783/tavily_python-0.8.1.tar.gz", hash = "sha256:f00d1ecfe9a7ad82a7d6b84427faefe7448e9f16a8115ece3f5fbadc35752c4b", size = 31270, upload-time = "2026-09-03T13:20:33.15Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/34/33/30bf2dcbd36f0591aa0b0a9bcf6b1d45c5c2223730557abdecf282cef72d/tavily_python-0.8.1-py3-none-any.whl", hash = "sha256:21392e47f28e6024405d5616e1e3228eed1d15a3b3d9d9e523c150e628f13a5e", size = 22177, upload-time = "2026-09-03T13:20:32.21Z" },
 ]
 
 [[package]]
